@@ -2,7 +2,7 @@
 I'm about to learn [Pandas](https://pandas.pydata.org/) using criminal data record. Pandas is an open source, BSD-licensed library providing high-performance, easy-to-use data structures and data analysis tools for the Python programming language.
 
 ## Data Sources 
-This app is uses [Los Angeles Crime Data](https://catalog.data.gov/dataset/crime-data-from-2010-to-present) from 2010 to present.
+This app uses [Los Angeles Crime Data](https://catalog.data.gov/dataset/crime-data-from-2010-to-present) from 2010 to present.
 
 ## Pre-Installation
 - Conda or Miniconda, see [Conda Docs](https://conda.io/docs/)
