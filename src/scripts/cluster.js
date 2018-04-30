@@ -54,6 +54,7 @@
  * @constructor
  * @extends google.maps.OverlayView
  */
+
 function MarkerClusterer(map, opt_markers, opt_options) {
   // MarkerClusterer implements google.maps.OverlayView interface. We use the
   // extend function to extend MarkerClusterer with google.maps.OverlayView
@@ -130,7 +131,6 @@ function MarkerClusterer(map, opt_markers, opt_options) {
   this.zoomOnClick_ = true;
 
   if (options['zoomOnClick'] != undefined) {
-    console.log('tara');
     this.zoomOnClick_ = options['zoomOnClick'];
   }
 
@@ -290,6 +290,7 @@ MarkerClusterer.prototype.getStyles = function() {
  * @return {boolean} True if zoomOnClick_ is set.
  */
 MarkerClusterer.prototype.isZoomOnClick = function() {
+  console.log(this);
   return this.zoomOnClick_;
 };
 

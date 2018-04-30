@@ -1,0 +1,32 @@
+#map {
+    height: 100%;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+#detail-info{
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    background: rgba(255, 255, 255, 0.9);
+    margin-top: 0px!important;
+    display:none;
+    padding: 20px;
+}
+#detail-info h1 {
+    font-size: 12px;
+}
+#detail-info p.lead {
+    font-size: 10px;
+    text-transform:uppercase;
+}
+#detail-info .victim,
+#detail-info .address,
+#detail-info .occured,
+#detail-info .reported{
+    font-weight: 600;
+}

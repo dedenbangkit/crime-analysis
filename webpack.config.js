@@ -5,6 +5,11 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 module.exports = {
     entry: './src/app.js',
     mode: 'production',
+    watch: true,
+    watchOptions: {
+        aggregateTimeout: 300,
+        poll: 1000
+    },
     output: {
         path: path.resolve(__dirname, './static/'),
         filename: 'bundle.js'
@@ -20,9 +25,14 @@ module.exports = {
             $: "jquery",
             jQuery: "jquery"
         }),
-        new CopyWebpackPlugin([
-            { from: './src/scripts/cluster.js', to: './scripts/cluster.js' },
-            { from: './src/scripts/map.js', to: './scripts/map.js' },
+        new CopyWebpackPlugin([{
+                from: './src/scripts/cluster.js',
+                to: './scripts/cluster.js'
+            },
+            {
+                from: './src/scripts/map.js',
+                to: './scripts/map.js'
+            },
         ])
     ],
 };
