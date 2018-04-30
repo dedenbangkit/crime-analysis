@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "eslint /src",
-    "build": "webpack"
+    "build": "webpack",
+    "start": "sh run.sh",
+    "stop": "sh kill.sh"
   },
   "repository": {
     "type": "git",
