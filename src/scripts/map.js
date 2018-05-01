@@ -1,7 +1,7 @@
 function initMap() {
     var locations = [];
     var contents = [];
-    $.get("/data", function (data) {
+    $.get("/api/data", function (data) {
         $(data).each(function (i, dt) {
             locations.push({
                 lat: dt.lat,
@@ -19,6 +19,7 @@ function initMap() {
         map.addListener("click", function () {
             $("#detail-info").slideUp("fast");
         });
+        map.data.loadGeoJson('/static/scripts/la.json');
         var markers = locations.map(function (location, i) {
             var mark = new google.maps.Marker({
                 position: location,

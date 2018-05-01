@@ -5,7 +5,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 module.exports = {
     entry: './src/app.js',
     mode: 'production',
-    watch: true,
+    watch: false,
     watchOptions: {
         aggregateTimeout: 300,
         poll: 1000
@@ -32,6 +32,10 @@ module.exports = {
             {
                 from: './src/scripts/map.js',
                 to: './scripts/map.js'
+            },
+            {
+                from: './src/scripts/la.json',
+                to: './scripts/la.json'
             },
         ])
     ],
