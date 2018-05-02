@@ -1,22 +1,88 @@
 function initMap() {
     var locations = [];
     var contents = [];
-    $.get("/api/data", function (data) {
-        $(data).each(function (i, dt) {
+    $.get("/api/data", function(data) {
+        $(data).each(function(i, dt) {
             locations.push({
                 lat: dt.lat,
                 lng: dt.lng,
             });
             contents.push(dt);
         });
+        mapstyle = [{
+                "featureType": "administrative",
+                "elementType": "labels.text.fill",
+                "stylers": [{
+                    "color": "#444444"
+                }]
+            },
+            {
+                "featureType": "landscape",
+                "elementType": "all",
+                "stylers": [{
+                    "color": "#f2f2f2"
+                }]
+            },
+            {
+                "featureType": "poi",
+                "elementType": "all",
+                "stylers": [{
+                    "visibility": "off"
+                }]
+            },
+            {
+                "featureType": "road",
+                "elementType": "all",
+                "stylers": [{
+                        "saturation": -100
+                    },
+                    {
+                        "lightness": 45
+                    }
+                ]
+            },
+            {
+                "featureType": "road.highway",
+                "elementType": "all",
+                "stylers": [{
+                    "visibility": "simplified"
+                }]
+            },
+            {
+                "featureType": "road.arterial",
+                "elementType": "labels.icon",
+                "stylers": [{
+                    "visibility": "off"
+                }]
+            },
+            {
+                "featureType": "transit",
+                "elementType": "all",
+                "stylers": [{
+                    "visibility": "off"
+                }]
+            },
+            {
+                "featureType": "water",
+                "elementType": "all",
+                "stylers": [{
+                        "color": "#ffffff"
+                    },
+                    {
+                        "visibility": "on"
+                    }
+                ]
+            }
+        ]
         var map = new google.maps.Map(document.getElementById("map"), {
             zoom: 11,
             center: {
                 lat: 34.1088566,
                 lng: -118.4375098,
             },
+            styles: mapstyle
         });
-        map.addListener("click", function () {
+        map.addListener("click", function() {
             $("#detail-info").slideUp("fast");
         });
 
@@ -25,15 +91,15 @@ function initMap() {
         map.data.loadGeoJson('/static/scripts/la.json')
         map.data.setStyle(function(feature){return (sets) */
 
-        var markers = locations.map(function (location, i) {
+        var markers = locations.map(function(location, i) {
             var mark = new google.maps.Marker({
                 position: location,
-                content: contents[ i ],
+                content: contents[i],
             });
-            mark.addListener("click", function () {
+            mark.addListener("click", function() {
                 var dt = this.content;
                 console.log(dt);
-                $("#detail-info").slideDown("fast", function () {
+                $("#detail-info").slideDown("fast", function() {
                     $this = $(this);
                     $this.find("h1").text(dt.crime_desc);
                     if (dt.victim_sex !== null) {
@@ -43,7 +109,7 @@ function initMap() {
                         } else {
                             sex = "Male";
                         }
-                        new google.maps.StreetViewPanorama( document.getElementById('pano'), {
+                        new google.maps.StreetViewPanorama(document.getElementById('pano'), {
                             position: location,
                             addressControl: false,
                             fullscreenControl: false,

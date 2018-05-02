@@ -37,6 +37,10 @@ module.exports = {
                 from: './src/scripts/la.json',
                 to: './scripts/la.json'
             },
+            {
+                from: './src/scripts/mapstyle.json',
+                to: './scripts/mapstyle.json'
+            }
         ])
     ],
 };
