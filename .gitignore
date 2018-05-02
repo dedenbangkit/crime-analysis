@@ -2,3 +2,4 @@
 /node_modules
 /static
 /package-lock.json
+/kill.sh
