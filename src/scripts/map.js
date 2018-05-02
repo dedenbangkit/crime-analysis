@@ -19,7 +19,12 @@ function initMap() {
         map.addListener("click", function () {
             $("#detail-info").slideUp("fast");
         });
-        map.data.loadGeoJson('/static/scripts/la.json');
+
+        /* var color = 'green';
+        sets = {fillColor:color, strokeColor:color, strokeWeight:1
+        map.data.loadGeoJson('/static/scripts/la.json')
+        map.data.setStyle(function(feature){return (sets) */
+
         var markers = locations.map(function (location, i) {
             var mark = new google.maps.Marker({
                 position: location,
@@ -38,6 +43,14 @@ function initMap() {
                         } else {
                             sex = "Male";
                         }
+                        new google.maps.StreetViewPanorama( document.getElementById('pano'), {
+                            position: location,
+                            addressControl: false,
+                            fullscreenControl: false,
+                            linksControl: false,
+                            panControl: false,
+                            enableCloseButton: false
+                        });
                         $this.find(".lead .victim").text(sex + ", " + dt.victim_age);
                     }
                     $this.find(".lead .address").text(dt.address + ", " + dt.area);

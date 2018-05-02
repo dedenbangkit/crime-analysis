@@ -39,6 +39,10 @@ body {
 #detail-info .reported {
     font-weight: 600;
 }
+#detail-info .btn-sm {
+    position:absolute;
+    bottom:20px;
+}
 
 .dropdown-item {
     font-size: 9px;
